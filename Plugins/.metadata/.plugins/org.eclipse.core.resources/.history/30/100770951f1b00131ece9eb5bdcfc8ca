@@ -1,0 +1,22 @@
+package Listners;
+
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerLoginEvent;
+
+public class ProbationLogOnListner implements Listener {
+    @EventHandler
+    public void normalLogin(PlayerLoginEvent event) {
+    	String prefixName = ChatColor.RED + "[Probation Core] ";
+		 Bukkit.broadcastMessage(prefixName + ChatColor.RED + "This Build Has BUGS Expect Some Crashing.");
+    }
+ 
+    @EventHandler(priority = EventPriority.HIGH)
+    public void highLogin(PlayerLoginEvent event) {
+    	String prefixName = ChatColor.RED + "[Probation Core] ";
+		 Bukkit.broadcastMessage(prefixName + ChatColor.RED + "This Build Has BUGS Expect Some Crashing.");
+    }
+}

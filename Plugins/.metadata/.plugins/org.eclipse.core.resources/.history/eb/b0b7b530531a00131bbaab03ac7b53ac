@@ -1,0 +1,13 @@
+package Listners;
+
+public class ProbationLogOnListner implements Listener {
+    @EventHandler
+    public void normalLogin(PlayerLoginEvent event) {
+        // Some code here
+    }
+ 
+    @EventHandler(priority = EventPriority.HIGH)
+    public void highLogin(PlayerLoginEvent event) {
+        // Some code here
+    }
+}
